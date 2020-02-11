@@ -20,11 +20,14 @@ public class Main {
             System.out.println("Enter your guess");
             int userNum = scan.nextInt();
 
-            if (myNum == userNum) {
+            if (myNum < userNum) {
+                System.out.println("My number is less then yours");
+            } else if (myNum > userNum) {
+                System.out.println("My number is greater then yours");
+            } if (myNum == userNum) {
                 System.out.println("You win!");
                 break;
             }
-
         }
 
     }
