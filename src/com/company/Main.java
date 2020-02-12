@@ -53,13 +53,13 @@ public class Main {
     }
     static boolean askAns() {
          for (;;) {
-            System.out.println("Do you wont to play once else? yes/no");
+            System.out.println("Do you want to play once else? yes/no");
             String answ = scan.next();
-            if (answ.equals("yes") || answ.equals("Yes") || answ.equals("YES"))
+            if (answ.equals("yes") || answ.equals("Yes") || answ.equals("YES") || answ.equals("y") || answ.equals("Y"))
                 return true;
-            else if (answ.equals("no") || answ.equals("No") || answ.equals("NO"))
+            else if (answ.equals("no") || answ.equals("No") || answ.equals("NO") || answ.equals("n") || answ.equals("N"))
                 return  false;
-            else System.out.println("Please enter yes or no");
+            else System.out.println("Please enter yes or no only");
         }
     }
 }
