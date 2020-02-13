@@ -32,7 +32,7 @@ public class Main {
                     break;
                 }
             }
-            answer = askAns();
+            answer = askAnswer();
         } while (answer != false);
     }
     static int askGuess() {
@@ -51,15 +51,19 @@ public class Main {
             }
         }
     }
-    static boolean askAns() {
+    static boolean askAnswer() {
          for (;;) {
             System.out.println("Do you want to play once else? yes/no");
             String answ = scan.next();
-            if (answ.equals("yes") || answ.equals("Yes") || answ.equals("YES") || answ.equals("y") || answ.equals("Y"))
+            if (answ.equalsIgnoreCase("yes") || answ.equalsIgnoreCase("y")) {
                 return true;
-            else if (answ.equals("no") || answ.equals("No") || answ.equals("NO") || answ.equals("n") || answ.equals("N"))
-                return  false;
-            else System.out.println("Please enter yes or no only");
-        }
+            }
+            else if (answ.equalsIgnoreCase("no") || answ.equalsIgnoreCase("n")) {
+                return false;
+            }
+            else {
+                System.out.println("Please enter yes or no only");
+            }
+         }
     }
 }
