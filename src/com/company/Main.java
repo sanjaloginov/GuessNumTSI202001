@@ -54,11 +54,11 @@ public class Main {
     static boolean askAnswer() {
          for (;;) {
             System.out.println("Do you want to play once else? yes/no");
-            String answ = scan.next();
-            if (answ.equalsIgnoreCase("yes") || answ.equalsIgnoreCase("y")) {
+            String anw = scan.next();
+            if (anw.equalsIgnoreCase("yes") || anw.equalsIgnoreCase("y")) {
                 return true;
             }
-            else if (answ.equalsIgnoreCase("no") || answ.equalsIgnoreCase("n")) {
+            else if (anw.equalsIgnoreCase("no") || anw.equalsIgnoreCase("n")) {
                 return false;
             }
             else {
