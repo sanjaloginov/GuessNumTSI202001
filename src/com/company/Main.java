@@ -9,10 +9,9 @@ public class Main {
     static Scanner scan = new Scanner(System.in);
 
     public static void main(String[] args) {
-        boolean answer;
-        do {
-            Random rand = new Random();
+        Random rand = new Random();
 
+        do {
             System.out.println("What is your name?");
             String name = scan.next();
             System.out.println("Hello, " + name);
@@ -23,17 +22,22 @@ public class Main {
             for (int i = 0; i < 10; i++) {
                 int userNum = askGuess();
 
-                if (myNum < userNum) {
-                    System.out.println("My number is less then yours");
-                } else if (myNum > userNum) {
-                    System.out.println("My number is greater then yours");
-                } else {
+                if (userNum == myNum) {
                     System.out.println("You win!");
                     break;
                 }
+                if (i == 9) {
+                    System.out.println("You lost! My number was " +myNum);
+                    break;
+                }
+                if (myNum < userNum) {
+                    System.out.println("My number is less then yours");
+                } else {
+                    System.out.println("My number is greater then yours");
+                }
             }
-            answer = askAnswer();
-        } while (answer != false);
+        } while (askAnotherGame());
+        System.out.println("Good bue!");
     }
     static int askGuess() {
         for (; ; ) {
@@ -47,22 +51,22 @@ public class Main {
                 }
             } catch (InputMismatchException ex) {
                 String str = scan.next();
-                System.out.println("This isn't a number");
+                System.out.println(str + " isn't a number");
             }
         }
     }
-    static boolean askAnswer() {
+    static boolean askAnotherGame() {
          for (;;) {
-            System.out.println("Do you want to play once else? yes/no");
-            String anw = scan.next();
-            if (anw.equalsIgnoreCase("yes") || anw.equalsIgnoreCase("y")) {
+            System.out.println("Do you want to play again? y/n");
+            String answer = scan.next();
+            if (answer.equalsIgnoreCase("yes") || answer.equalsIgnoreCase("y")) {
                 return true;
             }
-            else if (anw.equalsIgnoreCase("no") || anw.equalsIgnoreCase("n")) {
+            else if (answer.equalsIgnoreCase("no") || answer.equalsIgnoreCase("n")) {
                 return false;
             }
             else {
-                System.out.println("Please enter yes or no only");
+                System.out.println("Please enter yes or no (y/n) only");
             }
          }
     }
