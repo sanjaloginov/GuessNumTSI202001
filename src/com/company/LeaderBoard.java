@@ -8,6 +8,7 @@ import java.util.Comparator;
 import java.util.Scanner;
 
 public class LeaderBoard {
+    private static final File LEADER_DATA_FILE = new File("GameResults.txt");
     private ArrayList<GameResult> leaders = new ArrayList<>();
 
     public void addLeader (GameResult gr) {
@@ -40,8 +41,7 @@ public class LeaderBoard {
     }
 
     public void load() {
-        File leaderDataFile = new File("GameResults.txt");
-        try (Scanner in = new Scanner(leaderDataFile)) {
+        try (Scanner in = new Scanner(LEADER_DATA_FILE)) {
             while (in.hasNext()) {
                 long gameStartTime = in.nextLong();
                 String name = in.next();
@@ -61,8 +61,7 @@ public class LeaderBoard {
     }
 
     public void save() {
-        File leaderDataFile = new File("GameResults.txt");
-        try (PrintWriter out = new PrintWriter(leaderDataFile)) {
+        try (PrintWriter out = new PrintWriter(LEADER_DATA_FILE)) {
             for (GameResult r: leaders) {
                 out.printf("%d %s %d %d%n", r.getGameStartTime(), r.getName(), r.getTriesCount(), r.getTime());
             }
